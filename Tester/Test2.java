@@ -3,6 +3,9 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import Polynomialmplementation.Polynomial;
+import Polynomialmplementation.PolynomialImp;
+
 public class Test2 {
  
 	private static final double EPSILON = 0.0001;

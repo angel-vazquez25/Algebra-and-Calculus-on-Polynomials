@@ -1,3 +1,4 @@
+package Polynomialmplementation;
 public interface Term {
 	
 	public double getCoefficient();

@@ -1,4 +1,4 @@
-import java.util.Iterator;
+package Polynomialmplementation;
 
 public interface Polynomial extends Iterable<Term> {
 	
