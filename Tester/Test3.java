@@ -7,16 +7,16 @@ import Polynomialmplementation.Polynomial;
 import Polynomialmplementation.PolynomialImp;
 
 public class Test3 {
- 
+
 	private static final double EPSILON = 0.0001;
-	
+
 	private Polynomial P1;
 	private Polynomial P2;
 
 	@Before
 	public void setUp() throws Exception {
-		 P1 = new PolynomialImp("2x^2+-4x+10");
-		 P2 = new PolynomialImp("4x^3+-2x^2+5x+3");
+		P1 = new PolynomialImp("2x^2+-4x+10");
+		P2 = new PolynomialImp("4x^3+-2x^2+5x+3");
 	}
 
 	@Test
@@ -25,7 +25,7 @@ public class Test3 {
 		Polynomial P4 = new PolynomialImp("4x^3+x+13");
 		System.out.printf("Add-> P3: %s, P4: %s\n", P3, P4);
 		assertTrue(P3.equals(P4));
-		
+
 	}
 
 	@Test
@@ -34,13 +34,12 @@ public class Test3 {
 		Polynomial P4 = new PolynomialImp("-4x^3+4x^2+-9x+7");
 		System.out.printf("Subtract I-> P3: %s, P4: %s\n", P3, P4);
 		assertTrue(P3.equals(P4));
-		
+
 		P3 = new PolynomialImp("0").subtract(P1);
 		P4 = new PolynomialImp("-2x^2+4x+-10");
 		System.out.printf("Subtract II-> P3: %s, P4: %s\n", P3, P4);
 		assertTrue(P3.equals(P4));
-		
-		
+
 	}
 
 	@Test
@@ -69,7 +68,7 @@ public class Test3 {
 	@Test
 	public void testIndefiniteIntegral() {
 		Polynomial P3 = P2.indefiniteIntegral();
-		double c1 = -2.0/3.0, c2=5.0/2.0;
+		double c1 = -2.0 / 3.0, c2 = 5.0 / 2.0;
 		String strP4 = "x^4+" + c1 + "x^3+" + c2 + "x^2+3x+1";
 		Polynomial P4 = new PolynomialImp(strP4);
 		System.out.printf("Indefinite Integral-> P3: %s, P4: %s\n", P3, P4);

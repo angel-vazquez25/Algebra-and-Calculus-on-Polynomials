@@ -7,16 +7,16 @@ import Polynomialmplementation.Polynomial;
 import Polynomialmplementation.PolynomialImp;
 
 public class Test1 {
- 
+
 	private static final double EPSILON = 0.0001;
-	
+
 	private Polynomial P1;
 	private Polynomial P2;
 
 	@Before
 	public void setUp() throws Exception {
-		 P1 = new PolynomialImp("8x^2+1");
-		 P2 = new PolynomialImp("4x^2+2");
+		P1 = new PolynomialImp("8x^2+1");
+		P2 = new PolynomialImp("4x^2+2");
 
 	}
 
@@ -26,7 +26,7 @@ public class Test1 {
 		Polynomial P4 = new PolynomialImp("12x^2+3");
 		System.out.printf("Add-> P3: %s, P4: %s\n", P3, P4);
 		assertTrue(P3.equals(P4));
-		
+
 	}
 
 	@Test
@@ -57,7 +57,7 @@ public class Test1 {
 	@Test
 	public void testIndefiniteIntegral() {
 		Polynomial P3 = P2.indefiniteIntegral();
-		double c1 = 4/3.0;
+		double c1 = 4 / 3.0;
 		String strP4 = c1 + "x^3+2x+1";
 		Polynomial P4 = new PolynomialImp(strP4);
 		System.out.printf("Indefinite Integral-> P3: %s, P4: %s\n", P3, P4);
