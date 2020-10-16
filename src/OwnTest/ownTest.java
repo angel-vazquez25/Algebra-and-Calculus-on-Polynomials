@@ -8,7 +8,7 @@ import Polynomialmplementation.Term;
 import Polynomialmplementation.TermImp;
  
 
-class ownTest {
+class ownTest { // own test of ArrayList implememntation
 
 	public static void main(String[] args) {
 		// Polynomial doesnt need to be in order of descing powers

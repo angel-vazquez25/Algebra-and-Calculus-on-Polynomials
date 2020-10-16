@@ -9,7 +9,12 @@ public class TermImp implements Term {
 	
 	private double coef;
 	private int exp;
-	
+
+	/**
+	 * Term constructor
+	 * @param Coefficient
+	 * @param Exponent
+	 */
 	public TermImp(double Coefficient, int Exponent) {
 		
 		this.coef = Coefficient;
@@ -17,6 +22,9 @@ public class TermImp implements Term {
 		
 	}
 
+	/**
+	 * @return term's coefficient
+	 */
 	@Override
 	public double getCoefficient() {
 		
@@ -24,6 +32,9 @@ public class TermImp implements Term {
 		
 	}
 
+	/**
+	 * @return term's exponent
+	 */
 	@Override
 	public int getExponent() {
 		
@@ -31,6 +42,11 @@ public class TermImp implements Term {
 		
 	}
 
+	/**
+	 * Evaluation of given value in term
+	 * @param x value to be evaluated
+	 * @return resultant after evaluation
+	 */
 	@Override
 	public double evaluate(double x) {
 		
@@ -38,6 +54,10 @@ public class TermImp implements Term {
 		
 	}
 
+	/**
+	 * Conversion of term to string form term
+	 * @return term's string
+	 */
 	@Override
 	public String ToString() {
 		if(this.exp == 0) {
@@ -63,17 +83,17 @@ public class TermImp implements Term {
 		
 		if(temporary.contains("x^")){
 			
-			StringTokenizer token = new StringTokenizer(temporary,"x^");
+			StringTokenizer token = new StringTokenizer(temporary,"x^");// term aX^n
 			List<String> newList = new ArrayList<String>(2);
 			while(token.hasMoreElements()) {
 				newList.add((String)token.nextElement());
 			}
 			
 			if(newList.size() == 0) {throw new IllegalArgumentException("Illegal Format of Argument");}
-			else if(newList.size() == 1) {
+			else if(newList.size() == 1) { // term X^n
 				Integer exponent = Integer.parseInt(newList.get(0));
 				result = new TermImp(1,exponent);
-			}else {
+			}else { // term aX^n, where a is coefficient and n is exponent and a!= 1
 				Double coefficient = Double.parseDouble(newList.get(0));
 				Integer exponent = Integer.parseInt(newList.get(1));
 				result = new TermImp(coefficient, exponent);
@@ -81,7 +101,7 @@ public class TermImp implements Term {
 			
 		}
 		
-		else if(temporary.contains("x")) {
+		else if(temporary.contains("x")) { // exponent of value 1
 			
 			StringTokenizer token = new StringTokenizer(temporary,"x");
 			List<String> newList = new ArrayList<String>(2); 
@@ -89,15 +109,15 @@ public class TermImp implements Term {
 				newList.add((String)token.nextElement());
 			}
 			
-			if(newList.size() == 0 ) {result = new TermImp(1.0,1);}
-			else {
+			if(newList.size() == 0 ) {result = new TermImp(1.0,1);} // term of form x, coefficient = 1 and exponent = 1
+			else {// term of form aX, coefficient = a and exponent = 1
 				Double coefficient = Double.parseDouble(newList.get(0));
 				result = new TermImp(coefficient,1);
 			}
 			
 		}
 		
-		else {
+		else { // numeric value
 			
 			result = new TermImp(Double.parseDouble(temporary),0);
 			

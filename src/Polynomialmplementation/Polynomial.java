@@ -1,6 +1,6 @@
 package Polynomialmplementation;
 
-public interface Polynomial extends Iterable<Term> {
+public interface Polynomial extends Iterable<Term> { // Polynomial interface of methods to apply in polynomial implementation
 	
 	public Polynomial add(Polynomial P2);
 	

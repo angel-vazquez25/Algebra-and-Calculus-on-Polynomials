@@ -4,10 +4,10 @@ import java.io.PrintStream;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-public class ArrayList<E> implements List<E>{
+public class ArrayList<E> implements List<E>{ //ArrayList class with methods to manipulate arraylist
 
 	    @SuppressWarnings("hiding")
-		private class ListIterator<E> implements Iterator<E>
+		private class ListIterator<E> implements Iterator<E> //Iterator private class
 	    {
 	        private int currentPosition;
 	        
@@ -34,7 +34,7 @@ public class ArrayList<E> implements List<E>{
 	    private E[] elements;
 	    
 	    @SuppressWarnings("unchecked")
-		public ArrayList(final int initialCapacity) {
+		public ArrayList(final int initialCapacity) { //ArrayList Constructor
 	        if (initialCapacity < 1) {
 	            throw new IllegalArgumentException("Capacity must be at least 1.");
 	        }
@@ -43,7 +43,7 @@ public class ArrayList<E> implements List<E>{
 	    }
 	    
 	    @Override
-	    public void add(final E e) {
+	    public void add(final E e) { // add an element e at the end of the arraylist
 	        if (e == null) {
 	            throw new IllegalArgumentException("Argument object cannot be null.");
 	        }
@@ -54,7 +54,7 @@ public class ArrayList<E> implements List<E>{
 	    }
 	    
 	    @Override
-	    public void add(final int index, final E e) {
+	    public void add(final int index, final E e) { // add an element at a certain position
 	        if (e == null) {
 	            throw new IllegalArgumentException("Argument object cannot be null.");
 	        }
@@ -77,7 +77,7 @@ public class ArrayList<E> implements List<E>{
 	    }
 	    
 	    @Override
-	    public void clear() {
+	    public void clear() { // clear arraylist
 	        for (int i = 0; i < this.currentSize; ++i) {
 	            this.elements[i] = null;
 	        }
@@ -85,7 +85,7 @@ public class ArrayList<E> implements List<E>{
 	    }
 	    
 	    @Override
-	    public E firstElement() {
+	    public E firstElement() { // return first element of arraylist
 	        if (this.isEmpty()) {
 	            return null;
 	        }
@@ -93,7 +93,7 @@ public class ArrayList<E> implements List<E>{
 	    }
 	    
 	    @Override
-	    public int firstIndex(final E e) {
+	    public int firstIndex(final E e) { // return first ocurence of element e
 	        for (int i = 0; i < this.currentSize; ++i) {
 	            if (this.elements[i].equals(e)) {
 	                return i;
@@ -103,7 +103,7 @@ public class ArrayList<E> implements List<E>{
 	    }
 	    
 	    @Override
-	    public E get(final int index) {
+	    public E get(final int index) { // return element in certain position index
 	        if (index >= 0 && index < this.size()) {
 	            return this.elements[index];
 	        }
@@ -113,12 +113,12 @@ public class ArrayList<E> implements List<E>{
 	    @Override
 	    public boolean isEmpty() {
 	        return this.size() == 0;
-	    }
+	    } // check if arraylist is empty
 	    
 	    @Override
 	    public boolean isMember(final E e) {
 	        return this.firstIndex(e) >= 0;
-	    }
+	    } // check if element e is member of arraylist
 	    
 	    @Override
 	    public Iterator<E> iterator() {
@@ -126,7 +126,7 @@ public class ArrayList<E> implements List<E>{
 	    }
 	    
 	    @Override
-	    public E lastElement() {
+	    public E lastElement() { // return last element of arraylist
 	        if (this.isEmpty()) {
 	            return null;
 	        }
@@ -134,7 +134,7 @@ public class ArrayList<E> implements List<E>{
 	    }
 	    
 	    @Override
-	    public int lastIndex(final E e) {
+	    public int lastIndex(final E e) { // return last ocurrence of element e
 	        for (int i = this.currentSize - 1; i >= 0; --i) {
 	            if (this.elements[i].equals(e)) {
 	                return i;
@@ -144,7 +144,7 @@ public class ArrayList<E> implements List<E>{
 	    }
 	    
 	    @Override
-	    public void print(final PrintStream out) {
+	    public void print(final PrintStream out) { // print debugging method
 	        for (int i = 0; i < this.size(); ++i) {
 	            out.print(this.elements[i]);
 	            out.print(" ");
@@ -153,7 +153,7 @@ public class ArrayList<E> implements List<E>{
 	    }
 	    
 	    @SuppressWarnings("unchecked")
-		private void reAllocate() {
+		private void reAllocate() { // multiply araylist size by 2
 	        final Object[] newElements = new Object[2 * this.elements.length];
 	        for (int i = 0; i < this.currentSize; ++i) {
 	            newElements[i] = this.elements[i];
@@ -162,7 +162,7 @@ public class ArrayList<E> implements List<E>{
 	    }
 	    
 	    @Override
-	    public boolean remove(final E e) {
+	    public boolean remove(final E e) { // remove element e from arraylist
 	        if (e == null) {
 	            throw new IllegalArgumentException("Argument object cannot be null.");
 	        }
@@ -184,7 +184,7 @@ public class ArrayList<E> implements List<E>{
 	    }
 	    
 	    @Override
-	    public boolean remove(final int index) {
+	    public boolean remove(final int index) { // remove element at certain position and rearrange arraylist
 	        if (index >= 0 && index < this.currentSize) {
 	            for (int i = index; i < this.currentSize - 1; ++i) {
 	                this.elements[i] = this.elements[i + 1];
@@ -196,7 +196,7 @@ public class ArrayList<E> implements List<E>{
 	    }
 	    
 	    @Override
-	    public int removeAll(final E e) {
+	    public int removeAll(final E e) { // remove all ocurrences of element e in arraylist
 	        int counter = 0;
 	        while (this.remove(e)) {
 	            ++counter;
@@ -205,7 +205,7 @@ public class ArrayList<E> implements List<E>{
 	    }
 	    
 	    @Override
-	    public E set(final int index, final E e) {
+	    public E set(final int index, final E e) { // set element e in position index
 	        if (e == null) {
 	            throw new IllegalArgumentException("Object cannot be null");
 	        }
@@ -220,5 +220,5 @@ public class ArrayList<E> implements List<E>{
 	    @Override
 	    public int size() {
 	        return this.currentSize;
-	    }
+	    } // return size of list
 	}

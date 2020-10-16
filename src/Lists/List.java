@@ -2,7 +2,7 @@ package Lists;
 
 import java.io.PrintStream;
 
-public interface List<E> extends Iterable<E> {
+public interface List<E> extends Iterable<E> { // List inerface used for the creation of ArrrayList methods
     public void add(final E p0);
     
     public void add(final int p0, final E p1);
